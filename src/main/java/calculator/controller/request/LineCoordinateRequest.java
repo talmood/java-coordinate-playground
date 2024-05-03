@@ -20,6 +20,8 @@ public class LineCoordinateRequest {
 	}
 
 	public static LineCoordinateRequest from(final String pointInput) {
+		LineCoodinateValidator.validatePointInput(pointInput);
+
 		String[] splitPointInputs = splitPointInput(pointInput);
 		Point firstPoint = generatePoint(splitPointInputs[FIRST_INDEX]);
 		Point secondPoint = generatePoint(splitPointInputs[SECOND_INDEX]);
