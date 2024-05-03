@@ -1,7 +1,5 @@
 package calculator.coordinate;
 
-import calculator.exception.ExceptionMessage;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -9,6 +7,8 @@ import java.util.stream.IntStream;
 public class PointValidator {
 	private static final int MIN_POINT_NUMBER = 0;
 	private static final int MAX_POINT_NUMBER = 24;
+	private static final String ERROR_MESSAGE_WRONG_X_RANGE = "[ERROR] 잘못된 입력입니다. x 좌표값의 범위는 최소 0, 최대 24입니다.";
+	private static final String ERROR_MESSAGE_WRONG_Y_RANGE = "[ERROR] 잘못된 입력입니다. y 좌표값의 범위는 최소 0, 최대 24입니다.";
 	private static final List<Integer> AVAILABLE_POINT_LIST = new LinkedList<>();
 
 	static {
@@ -21,11 +21,11 @@ public class PointValidator {
 	 */
 	public static void validatePoint(final int x, final int y) {
 		if (!AVAILABLE_POINT_LIST.contains(x)) {
-			throw new IllegalArgumentException(ExceptionMessage.fetchWrongXRangeMessage());
+			throw new IllegalArgumentException(ERROR_MESSAGE_WRONG_X_RANGE);
 		}
 
 		if (!AVAILABLE_POINT_LIST.contains(y)) {
-			throw new IllegalArgumentException(ExceptionMessage.fetchWrongYRangeMessage());
+			throw new IllegalArgumentException(ERROR_MESSAGE_WRONG_Y_RANGE);
 		}
 	}
 }
