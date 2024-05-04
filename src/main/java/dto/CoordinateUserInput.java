@@ -1,5 +1,7 @@
 package dto;
 
+import domain.Coordinates;
+
 import java.util.List;
 
 public class CoordinateUserInput {
@@ -7,6 +9,12 @@ public class CoordinateUserInput {
 
     public CoordinateUserInput(List<Coordinate> coordinates) {
         this.coordinates = coordinates;
+    }
+
+    public Coordinates toCoordinates() {
+        return Coordinates.create(this.coordinates.stream()
+                .map(Coordinate::toDomain)
+                .toList());
     }
 
     public static class Coordinate {
@@ -18,6 +26,10 @@ public class CoordinateUserInput {
         public Coordinate(int xCoordinate, int yCoordinate) {
             this.xCoordinate = xCoordinate;
             this.yCoordinate = yCoordinate;
+        }
+
+        public domain.Coordinate toDomain() {
+            return domain.Coordinate.create(this.xCoordinate, this.yCoordinate);
         }
     }
 }

@@ -4,9 +4,17 @@ import java.util.List;
 
 public class Coordinates {
 
-    private final List<Coordinates> coordinates;
+    private final List<Coordinate> coordinates;
 
-    public Coordinates(List<Coordinates> coordinates) {
+    private Coordinates(List<Coordinate> coordinates) {
         this.coordinates = coordinates;
+    }
+
+    public static Coordinates create(List<Coordinate> coordinates) {
+        return new Coordinates(coordinates);
+    }
+
+    public boolean isEqualSize(int size) {
+        return this.coordinates.size() == size;
     }
 }
