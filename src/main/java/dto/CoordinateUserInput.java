@@ -11,9 +11,9 @@ public class CoordinateUserInput {
 
     public static class Coordinate {
 
-        private int xCoordinate;
+        private final int xCoordinate;
 
-        private int yCoordinate;
+        private final int yCoordinate;
 
         public Coordinate(int xCoordinate, int yCoordinate) {
             this.xCoordinate = xCoordinate;
