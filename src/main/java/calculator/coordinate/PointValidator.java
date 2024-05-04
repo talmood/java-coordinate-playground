@@ -13,7 +13,7 @@ public class PointValidator {
 
 	static {
 		IntStream.rangeClosed(MIN_POINT_NUMBER, MAX_POINT_NUMBER)
-				.forEach(AVAILABLE_POINT_LIST::add);
+			.forEach(AVAILABLE_POINT_LIST::add);
 	}
 
 	/**
