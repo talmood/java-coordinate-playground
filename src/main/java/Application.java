@@ -4,14 +4,12 @@ import dto.CoordinateUserInput;
 import input.CoordinateInputPrompt;
 import input.InputPrompt;
 
-import java.io.IOException;
-
 public class Application {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         InputPrompt inputPrompt = new CoordinateInputPrompt();
         CoordinateUserInput userInput = inputPrompt.prompt();
-        Polygon polygon = PolygonCreator.create(userInput.toCoordinates());
+        Polygon polygon = PolygonCreator.create(userInput.toDomainCoordinates());
 
     }
 

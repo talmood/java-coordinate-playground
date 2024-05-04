@@ -11,6 +11,10 @@ public class CoordinateInputPrompt implements InputPrompt {
         System.out.println(INPUT_COORDINATE_NAVIGATION_STRING);
         String userInput = Console.readLine();
 
-        return CoordinateUserInputPatternMatcher.match(userInput);
+        CoordinateUserInput coordinateUserInput = CoordinateUserInputPatternMatcher.match(userInput);
+        CoordinateUserInputValidChecker coordinateUserInputValidChecker = new CoordinateUserInputValidChecker();
+        coordinateUserInputValidChecker.check(coordinateUserInput);
+
+        return coordinateUserInput;
     }
 }
