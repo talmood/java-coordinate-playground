@@ -5,6 +5,7 @@ import calculator.controller.request.LineCoordinateRequest;
 import calculator.coordinate.Point;
 
 public class LineCoordinateCalculator implements CoordinateCalculator {
+	private static final int SQUARE_FACTOR = 2;
 
 	public LineCoordinateCalculator() {}
 
@@ -24,7 +25,7 @@ public class LineCoordinateCalculator implements CoordinateCalculator {
 	 */
 	private double diffSquarePointX(final Point point1, final Point point2) {
 		double diff = point1.getX() - point2.getX();
-		return diff * diff;
+		return Math.pow(diff, SQUARE_FACTOR);
 	}
 
 	/**
@@ -32,6 +33,6 @@ public class LineCoordinateCalculator implements CoordinateCalculator {
 	 */
 	private double diffSquarePointY(final Point point1, final Point point2) {
 		double diff = point1.getY() - point2.getY();
-		return diff * diff;
+		return Math.pow(diff, SQUARE_FACTOR);
 	}
 }

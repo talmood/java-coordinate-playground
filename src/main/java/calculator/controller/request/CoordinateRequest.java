@@ -11,6 +11,8 @@ public abstract class CoordinateRequest {
 	private static final String BRACKET_COMMA_REGEX = "[()]";
 	static final int FIRST_INDEX = 0;
 	static final int SECOND_INDEX = 1;
+	static final int THIRD_INDEX = 2;
+	static final int FOURTH_INDEX = 3;
 
 	/**
 	 * 좌표 입력값에서 '-' 문자를 기준으로 나눔

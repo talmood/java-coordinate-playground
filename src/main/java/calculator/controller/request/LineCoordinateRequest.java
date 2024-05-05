@@ -13,7 +13,7 @@ public class LineCoordinateRequest extends CoordinateRequest {
 	}
 
 	public static LineCoordinateRequest from(final String pointInput) {
-		LineCoodinateValidator.validatePointInput(pointInput);
+		LineCoordinateValidator.validatePointInput(pointInput);
 
 		String[] splitPointInputs = splitPointInput(pointInput);
 		Point firstPoint = generatePoint(splitPointInputs[FIRST_INDEX]);
