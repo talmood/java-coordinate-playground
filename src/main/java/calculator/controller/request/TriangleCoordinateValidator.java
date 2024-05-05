@@ -3,7 +3,7 @@ package calculator.controller.request;
 public class TriangleCoordinateValidator extends CoordinateValidator {
 	private static final int COORDINATE_COUNT = 3;
 
-	private static final String WRONG_INPUT_COORDINATE_COUNT = " 삼각형 좌표는 두 개를 입력해야 합니다.";
+	private static final String WRONG_INPUT_COORDINATE_COUNT = " 삼각형 좌표는 세 개를 입력해야 합니다.";
 
 	/**
 	 * 좌표 입력값을 검증한다.
