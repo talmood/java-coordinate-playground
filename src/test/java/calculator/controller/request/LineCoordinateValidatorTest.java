@@ -11,7 +11,7 @@ class LineCoordinateValidatorTest {
 
 	@Test
 	void 직선_좌표_입력_검증_좌표_개수가_잘못된_경우() {
-		String pointInputs = "(1,2)";
+		String pointInputs = "(1,2)-";
 
 		IllegalArgumentException actual = assertThrows(IllegalArgumentException.class, () -> {
 			LineCoordinateValidator.validatePointInput(pointInputs);
