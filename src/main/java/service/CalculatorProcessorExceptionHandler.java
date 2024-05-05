@@ -1,13 +1,13 @@
-package input;
+package service;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-public class ConsoleInputExceptionHandler implements InvocationHandler {
+public class CalculatorProcessorExceptionHandler implements InvocationHandler {
 
     private final Object target;
 
-    public ConsoleInputExceptionHandler(Object target) {
+    public CalculatorProcessorExceptionHandler(Object target) {
         this.target = target;
     }
 

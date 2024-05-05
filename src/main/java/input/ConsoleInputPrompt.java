@@ -6,7 +6,7 @@ public class ConsoleInputPrompt implements InputPrompt {
 
     @Override
     public ConsoleInput prompt() {
-        InputPrompt inputPrompt = InputPromptCreator.createExceptionHandlingCoordinate();
+        InputPrompt inputPrompt = new CoordinateInputPrompt();
 
         return inputPrompt.prompt();
     }

@@ -4,11 +4,11 @@ import java.lang.reflect.Proxy;
 
 public abstract class CoordinateCalculatorCreator {
 
-    public static CoordinateCalculator createRetryable() {
+    public static CoordinateCalculator createWithExceptionHandling() {
         return (CoordinateCalculator) Proxy.newProxyInstance(
                 CoordinateCalculator.class.getClassLoader(),
                 new Class[]{CoordinateCalculator.class},
-                new RetryableCalculatorProxy(new ConsoleCoordinateCalculator())
+                new CalculatorProcessorExceptionHandler(new RetryCoordinateCalculatorProxy(new ConsoleCoordinateCalculator()))
         );
     }
 }
