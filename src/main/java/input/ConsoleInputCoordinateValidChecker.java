@@ -28,7 +28,7 @@ public class ConsoleInputCoordinateValidChecker {
     }
 
     private void checkRange(ConsoleInput consoleInput) {
-        if (!consoleInput.isCandidatesRange(MIN_COORDINATE_RANGE, MAX_COORDINATE_RANGE)) {
+        if (!consoleInput.isCoordinatesRange(MIN_COORDINATE_RANGE, MAX_COORDINATE_RANGE)) {
             throw new IllegalArgumentException(
                     String.format(
                             "> [ERROR] 잘못된 입력입니다. X, Y 좌표의 범위는 최소 %d, 최대 %d입니다.",
