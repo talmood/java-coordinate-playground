@@ -1,6 +1,8 @@
 package domain;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.IntStream;
 
 public class Square implements Polygon {
 
@@ -14,7 +16,7 @@ public class Square implements Polygon {
 
     public static Square create(Coordinates coordinates) {
         validateCoordinateSize(coordinates);
-
+        validateRectangle(coordinates);
         return new Square(coordinates);
     }
 
@@ -26,22 +28,44 @@ public class Square implements Polygon {
         }
     }
 
-    public int calculateArea() {
-        List<Coordinate> pointers = this.coordinates.toList();
-        Coordinate point1 = pointers.get(0);
-        Coordinate point2 = pointers.get(1);
-        Coordinate point3 = pointers.get(2);
-        Coordinate point4 = pointers.get(3);
-
-        int width = this.calculateDistance(point1, point2);
-
-        int height = this.calculateDistance(point1, point4);
-
-        return width * height;
+    private static void validateRectangle(Coordinates coordinates) {
+        if (!isRectangle(coordinates)) {
+            throw new IllegalArgumentException("[ERROR] 사각형은 직사각형이어야 합니다.");
+        }
     }
 
-    private int calculateDistance(Coordinate point1, Coordinate point2) {
-        return Math.abs(point2.getxCoordinate()) - point1.getxCoordinate() *
-                Math.abs(point2.getyCoordinate() - point1.getyCoordinate());
+    private static boolean isRectangle(Coordinates coordinates) {
+        List<Coordinate> points = coordinates.toList();
+        List<Double> sideLengths = IntStream.range(0, 4)
+                .mapToObj(index -> {
+                    int dx = points.get((index + 1) % 4).getxCoordinate() - points.get(index).getxCoordinate();
+                    int dy = points.get((index + 1) % 4).getyCoordinate() - points.get(index).getyCoordinate();
+                    return Math.pow(dx, 2) + Math.pow(dy, 2);
+                })
+                .toList();
+
+        return Objects.equals(sideLengths.get(0), sideLengths.get(2)) &&
+                Objects.equals(sideLengths.get(1), sideLengths.get(3));
+    }
+
+    public int calculateArea() {
+        List<Coordinate> pointers = this.coordinates.toList();
+        int width = 0;
+        int height = 0;
+
+        int x = pointers.get(0).getxCoordinate();
+        int y = pointers.get(1).getyCoordinate();
+
+        for (Coordinate pointer : pointers) {
+            if (x != pointer.getxCoordinate()) {
+                width = Math.abs(x - pointer.getxCoordinate());
+            }
+
+            if (y != pointer.getyCoordinate()) {
+                height = Math.abs(y - pointer.getyCoordinate());
+            }
+        }
+
+        return width * height;
     }
 }

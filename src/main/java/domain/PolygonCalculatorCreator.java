@@ -11,7 +11,7 @@ public abstract class PolygonCalculatorCreator {
             return new TriangleCalculator();
         }
 
-        if (polygon instanceof SquareCalculator) {
+        if (polygon instanceof Square) {
             return new SquareCalculator();
         }
 

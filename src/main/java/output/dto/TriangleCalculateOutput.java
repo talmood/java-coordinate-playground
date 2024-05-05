@@ -7,4 +7,8 @@ public class TriangleCalculateOutput implements CalculateOutput {
     public TriangleCalculateOutput(double result) {
         this.result = result;
     }
+
+    public double getRoundedResult() {
+        return Math.round(this.result * 10) / 10.0;
+    }
 }
