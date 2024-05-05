@@ -7,4 +7,6 @@ public class Line implements Polygon {
     public Line(Coordinates coordinates) {
         this.coordinates = coordinates;
     }
+
+
 }

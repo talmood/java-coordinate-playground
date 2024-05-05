@@ -4,5 +4,5 @@ import output.dto.CalculateResultOutput;
 
 public interface PolygonCalculator {
 
-    CalculateResultOutput calculate();
+    CalculateResultOutput calculate(Polygon polygon);
 }
