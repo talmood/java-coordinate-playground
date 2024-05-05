@@ -12,8 +12,8 @@ public class RectangleCoordinateValidator extends CoordinateValidator {
 	private static final String WRONG_INPUT_COORDINATE_COUNT = " 사각형 좌표는 네 개를 입력해야 합니다.";
 	private static final String WRONG_RECTANGLE = " 사각형 좌표는 직사각형만 허용합니다.";
 
-	private static Set<Integer> xSet = new HashSet<>();
-	private static Set<Integer> ySet = new HashSet<>();
+	private static Set<Integer> xSet;
+	private static Set<Integer> ySet;
 
 	/**
 	 * 좌표 입력값을 검증한다.
@@ -53,6 +53,7 @@ public class RectangleCoordinateValidator extends CoordinateValidator {
 								 final Point secondPoint,
 								 final Point thirdPoint,
 								 final Point fourthPoint) {
+		xSet = new HashSet<>();
 		xSet.add(firstPoint.getX());
 		xSet.add(secondPoint.getX());
 		xSet.add(thirdPoint.getX());
@@ -63,6 +64,7 @@ public class RectangleCoordinateValidator extends CoordinateValidator {
 								 final Point secondPoint,
 								 final Point thirdPoint,
 								 final Point fourthPoint) {
+		ySet = new HashSet<>();
 		ySet.add(firstPoint.getY());
 		ySet.add(secondPoint.getY());
 		ySet.add(thirdPoint.getY());
