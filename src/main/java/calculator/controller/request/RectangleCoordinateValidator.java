@@ -9,7 +9,7 @@ public class RectangleCoordinateValidator extends CoordinateValidator {
 	private static final int COORDINATE_COUNT = 4;
 	private static final int SAME_XY_COORDINATE_COUNT = 2;
 
-	private static final String WRONG_INPUT_COORDINATE_COUNT = " 사각형 좌표는 두 개를 입력해야 합니다.";
+	private static final String WRONG_INPUT_COORDINATE_COUNT = " 사각형 좌표는 네 개를 입력해야 합니다.";
 	private static final String WRONG_RECTANGLE = " 사각형 좌표는 직사각형만 허용합니다.";
 
 	private static Set<Integer> xSet = new HashSet<>();
