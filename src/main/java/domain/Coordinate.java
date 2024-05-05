@@ -42,6 +42,14 @@ public class Coordinate {
         return number >= MIN_COORDINATE_RANGE && number <= MAX_COORDINATE_RANGE;
     }
 
+    public int getxCoordinate() {
+        return xCoordinate;
+    }
+
+    public int getyCoordinate() {
+        return yCoordinate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

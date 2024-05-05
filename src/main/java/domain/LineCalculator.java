@@ -1,13 +1,15 @@
 package domain;
 
-import output.dto.CalculateResultOutput;
+import output.dto.CalculateOutput;
+import output.dto.LineCalculateOutput;
 
 public class LineCalculator implements PolygonCalculator {
 
 
     @Override
-    public CalculateResultOutput calculate(Polygon polygon) {
+    public CalculateOutput calculate(Polygon polygon) {
+        Line line = (Line) polygon;
 
-        return null;
+        return new LineCalculateOutput(line.calculateDistance());
     }
 }

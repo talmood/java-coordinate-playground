@@ -31,4 +31,7 @@ public class Coordinates {
         return this.coordinates.size() == size;
     }
 
+    public List<Coordinate> toList() {
+        return List.copyOf(this.coordinates);
+    }
 }

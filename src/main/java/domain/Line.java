@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 public class Line implements Polygon {
 
     private static final int VALID_COORDINATE_SIZE = 2;
@@ -22,5 +24,20 @@ public class Line implements Polygon {
                     String.format("[ERROR] 선의 좌표는 %d개 여야 합니다.", VALID_COORDINATE_SIZE)
             );
         }
+    }
+
+    public double calculateDistance() {
+        List<Coordinate> pointers = this.coordinates.toList();
+        Coordinate firstPointer = pointers.get(0);
+        Coordinate secondPointer = pointers.get(1);
+
+        return Math.sqrt(
+                this.square(firstPointer.getxCoordinate() - secondPointer.getxCoordinate()) +
+                        this.square(firstPointer.getyCoordinate() - secondPointer.getyCoordinate())
+        );
+    }
+
+    private double square(int number) {
+        return Math.pow(number, 2);
     }
 }

@@ -1,8 +1,8 @@
 package domain;
 
-import output.dto.CalculateResultOutput;
+import output.dto.CalculateOutput;
 
 public interface PolygonCalculator {
 
-    CalculateResultOutput calculate(Polygon polygon);
+    CalculateOutput calculate(Polygon polygon);
 }

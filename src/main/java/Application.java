@@ -5,7 +5,7 @@ import domain.PolygonCreator;
 import input.ConsoleInputPrompt;
 import input.InputPrompt;
 import input.dto.ConsoleInput;
-import output.dto.CalculateResultOutput;
+import output.dto.CalculateOutput;
 
 public class Application {
 
@@ -15,7 +15,7 @@ public class Application {
 
         Polygon polygon = PolygonCreator.create(consoleInput.toDomainCoordinates());
         PolygonCalculator polygonCalculator = PolygonCalculatorCreator.create(polygon);
-        CalculateResultOutput output = polygonCalculator.calculate(polygon);
+        CalculateOutput output = polygonCalculator.calculate(polygon);
 
     }
 
