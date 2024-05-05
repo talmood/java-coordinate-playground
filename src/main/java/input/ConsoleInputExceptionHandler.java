@@ -16,7 +16,7 @@ public class ConsoleInputExceptionHandler implements InvocationHandler {
         try {
             return method.invoke(target, args);
         } catch (Exception e) {
-            System.out.println("\n" + e.getCause().getMessage() + "\n");
+            System.out.println(e.getCause().getMessage() + "\n");
             return this.invoke(proxy, method, args);
         }
     }

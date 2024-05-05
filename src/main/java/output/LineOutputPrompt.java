@@ -11,6 +11,6 @@ public class LineOutputPrompt implements OutputPrompt {
     public void prompt(CalculateOutput calculateOutput) {
         LineCalculateOutput lineCalculateOutput = (LineCalculateOutput) calculateOutput;
 
-        System.out.println(LINE_DISTANCE_NAVIGATION + lineCalculateOutput.getRoundedResult());
+        System.out.println(LINE_DISTANCE_NAVIGATION + lineCalculateOutput.getRoundedResult() + "\n");
     }
 }

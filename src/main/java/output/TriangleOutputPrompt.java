@@ -11,6 +11,6 @@ public class TriangleOutputPrompt implements OutputPrompt {
     public void prompt(CalculateOutput calculateOutput) {
         TriangleCalculateOutput triangleCalculateOutput = (TriangleCalculateOutput) calculateOutput;
 
-        System.out.println(TRIANGLE_AREA_NAVIGATION + triangleCalculateOutput.getRoundedResult());
+        System.out.println(TRIANGLE_AREA_NAVIGATION + triangleCalculateOutput.getRoundedResult() + "\n");
     }
 }

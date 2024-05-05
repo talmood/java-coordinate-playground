@@ -11,6 +11,6 @@ public class SquareOutputPrompt implements OutputPrompt {
     public void prompt(CalculateOutput calculateOutput) {
         SquareCalculateOutput squareCalculateOutput = (SquareCalculateOutput) calculateOutput;
 
-        System.out.println(SQUARE_AREA_NAVIGATION + squareCalculateOutput.getResult());
+        System.out.println(SQUARE_AREA_NAVIGATION + squareCalculateOutput.getResult() + "\n");
     }
 }
