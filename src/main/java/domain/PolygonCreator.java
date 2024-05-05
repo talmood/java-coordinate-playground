@@ -8,15 +8,15 @@ public class PolygonCreator {
 
     public static Polygon create(Coordinates coordinates) {
         if (coordinates.isEqualSize(LINE_COORDINATES_SIZE)) {
-            return new Line(coordinates);
+            return Line.create(coordinates);
         }
 
         if (coordinates.isEqualSize(TRIANGLE_COORDINATES_SIZE)) {
-            return new Triangle(coordinates);
+            return Triangle.create(coordinates);
         }
 
         if (coordinates.isEqualSize(SQUARE_COORDINATES_SIZE)) {
-            return new Square(coordinates);
+            return Square.create(coordinates);
         }
 
         throw new IllegalArgumentException("[ERROR] 좌표 갯수에 맞는 도형이 없습니다.");

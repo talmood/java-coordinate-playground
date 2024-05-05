@@ -6,7 +6,7 @@ public class Triangle implements Polygon {
 
     private final Coordinates coordinates;
 
-    public Triangle(Coordinates coordinates) {
+    private Triangle(Coordinates coordinates) {
         this.coordinates = coordinates;
     }
 

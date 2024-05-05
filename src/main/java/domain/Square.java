@@ -5,7 +5,7 @@ public class Square implements Polygon {
     private static final int VALID_COORDINATE_SIZE = 4;
     private final Coordinates coordinates;
 
-    public Square(Coordinates coordinates) {
+    private Square(Coordinates coordinates) {
         this.coordinates = coordinates;
     }
 
