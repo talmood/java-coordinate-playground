@@ -5,6 +5,8 @@ import domain.PolygonCreator;
 import input.ConsoleInputPrompt;
 import input.InputPrompt;
 import input.dto.ConsoleInput;
+import output.OutputPrompt;
+import output.OutputPromptCreator;
 import output.dto.CalculateOutput;
 
 public class Application {
@@ -17,6 +19,7 @@ public class Application {
         PolygonCalculator polygonCalculator = PolygonCalculatorCreator.create(polygon);
         CalculateOutput output = polygonCalculator.calculate(polygon);
 
+        OutputPrompt outputPrompt = OutputPromptCreator.create(output);
+        outputPrompt.prompt(output);
     }
-
 }
