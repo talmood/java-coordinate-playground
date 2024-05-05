@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
-public class CoordinateUserInput {
+public class ConsoleInput {
     private final List<Coordinate> coordinates;
 
-    public CoordinateUserInput(List<Coordinate> coordinates) {
+    public ConsoleInput(List<Coordinate> coordinates) {
         this.coordinates = coordinates;
     }
 

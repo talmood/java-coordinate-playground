@@ -1,8 +1,8 @@
 package input;
 
-import dto.CoordinateUserInput;
+import dto.ConsoleInput;
 
 public interface InputPrompt {
 
-    CoordinateUserInput prompt();
+    ConsoleInput prompt();
 }
