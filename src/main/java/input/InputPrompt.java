@@ -1,6 +1,6 @@
 package input;
 
-import dto.ConsoleInput;
+import input.dto.ConsoleInput;
 
 public interface InputPrompt {
 

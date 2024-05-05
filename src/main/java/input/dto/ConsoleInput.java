@@ -1,4 +1,4 @@
-package dto;
+package input.dto;
 
 import domain.Coordinates;
 import util.CollectionUtil;

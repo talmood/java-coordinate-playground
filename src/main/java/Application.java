@@ -1,8 +1,8 @@
 import domain.Polygon;
 import domain.PolygonCreator;
-import dto.ConsoleInput;
 import input.ConsoleInputPrompt;
 import input.InputPrompt;
+import input.dto.ConsoleInput;
 
 public class Application {
 
@@ -11,6 +11,7 @@ public class Application {
         ConsoleInput consoleInput = inputPrompt.prompt();
 
         Polygon polygon = PolygonCreator.create(consoleInput.toDomainCoordinates());
+
     }
 
 }
