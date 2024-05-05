@@ -5,7 +5,6 @@ import calculator.controller.request.RectangleCoordinateRequest;
 import calculator.coordinate.Point;
 
 public class RectangleCoordinateCalculator implements CoordinateCalculator {
-	private static final int SQUARE_FACTOR = 2;
 
 	public RectangleCoordinateCalculator() {}
 
