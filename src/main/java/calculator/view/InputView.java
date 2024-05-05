@@ -2,6 +2,7 @@ package calculator.view;
 
 import calculator.controller.request.LineCoordinateRequest;
 import calculator.controller.request.RectangleCoordinateRequest;
+import calculator.controller.request.TriangleCoordinateRequest;
 import calculator.utils.Console;
 
 public class InputView {
@@ -28,6 +29,16 @@ public class InputView {
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 			return inputRectangleCoordinate();
+		}
+	}
+
+	public static TriangleCoordinateRequest inputTriangleCoordinate() {
+		System.out.println(INPUT_COORDINATE_MESSAGE);
+		try {
+			return TriangleCoordinateRequest.from(Console.readLine());
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			return inputTriangleCoordinate();
 		}
 	}
 

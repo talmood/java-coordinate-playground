@@ -3,6 +3,7 @@ package calculator.controller;
 import calculator.domain.CoordinateCalculator;
 import calculator.domain.LineCoordinateCalculator;
 import calculator.domain.RectangleCoordinateCalculator;
+import calculator.domain.TriangleCoordinateCalculator;
 import calculator.view.InputView;
 import calculator.view.ResultView;
 
@@ -18,7 +19,8 @@ public class CalculateSimulator {
 		if (!askToContinue()) {
 			return;
 		}
-
+		runTriangleCoordinateCalculator();
+		System.out.println(END_MESSAGE);
 	}
 
 	private static void runLineCoordinateCalculator() {
@@ -32,6 +34,13 @@ public class CalculateSimulator {
 		CoordinateCalculator rectangleCoordinateCalculator = new RectangleCoordinateCalculator();
 		ResultView.printRectangleCoordinateResult(
 			rectangleCoordinateCalculator.calculate(InputView.inputRectangleCoordinate())
+		);
+	}
+
+	private static void runTriangleCoordinateCalculator() {
+		CoordinateCalculator triangleCoordinateCalculator = new TriangleCoordinateCalculator();
+		ResultView.printTriangleCoordinateResult(
+			triangleCoordinateCalculator.calculate(InputView.inputTriangleCoordinate())
 		);
 	}
 
