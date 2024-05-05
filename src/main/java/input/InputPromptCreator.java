@@ -2,7 +2,7 @@ package input;
 
 import java.lang.reflect.Proxy;
 
-public class InputPromptCreator {
+public abstract class InputPromptCreator {
 
     public static InputPrompt createExceptionHandlingCoordinate() {
         return (InputPrompt) Proxy.newProxyInstance(
