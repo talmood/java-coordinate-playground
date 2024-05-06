@@ -24,24 +24,18 @@ public class CalculateSimulator {
 	}
 
 	private static void runLineCoordinateCalculator() {
-		CoordinateCalculator lineCoordinateCalculator = new LineCoordinateCalculator();
-		ResultView.printLineCoordinateResult(
-			lineCoordinateCalculator.calculate(InputView.inputLineCoordinate())
-		);
+		CoordinateCalculator lineCoordinateCalculator = LineCoordinateCalculator.from(InputView.inputLineCoordinate());
+		ResultView.printLineCoordinateResult(lineCoordinateCalculator.calculate());
 	}
 
 	private static void runRectangleCoordinateCalculator() {
-		CoordinateCalculator rectangleCoordinateCalculator = new RectangleCoordinateCalculator();
-		ResultView.printRectangleCoordinateResult(
-			rectangleCoordinateCalculator.calculate(InputView.inputRectangleCoordinate())
-		);
+		CoordinateCalculator rectangleCoordinateCalculator = RectangleCoordinateCalculator.from(InputView.inputRectangleCoordinate());
+		ResultView.printRectangleCoordinateResult(rectangleCoordinateCalculator.calculate());
 	}
 
 	private static void runTriangleCoordinateCalculator() {
-		CoordinateCalculator triangleCoordinateCalculator = new TriangleCoordinateCalculator();
-		ResultView.printTriangleCoordinateResult(
-			triangleCoordinateCalculator.calculate(InputView.inputTriangleCoordinate())
-		);
+		CoordinateCalculator triangleCoordinateCalculator = TriangleCoordinateCalculator.from(InputView.inputTriangleCoordinate());
+		ResultView.printTriangleCoordinateResult(triangleCoordinateCalculator.calculate());
 	}
 
 	private static boolean askToContinue() {

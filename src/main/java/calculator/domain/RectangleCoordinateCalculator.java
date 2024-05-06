@@ -6,13 +6,21 @@ import calculator.coordinate.Point;
 
 public class RectangleCoordinateCalculator implements CoordinateCalculator {
 
-	public RectangleCoordinateCalculator() {}
+	private final CoordinateRequest coordinateRequest;
+
+	private RectangleCoordinateCalculator(final RectangleCoordinateRequest coordinateRequest) {
+		this.coordinateRequest = coordinateRequest;
+	}
+
+	public static RectangleCoordinateCalculator from(final RectangleCoordinateRequest coordinateRequest) {
+		return new RectangleCoordinateCalculator(coordinateRequest);
+	}
 
 	/**
 	 * 사각형 면적 : 너비 * 높이
 	 */
 	@Override
-	public double calculate(final CoordinateRequest coordinateRequest) {
+	public double calculate() {
 		final Point firstPoint = ((RectangleCoordinateRequest) coordinateRequest).getFirstPoint();
 		final Point secondPoint = ((RectangleCoordinateRequest) coordinateRequest).getSecondPoint();
 		final Point thirdPoint = ((RectangleCoordinateRequest) coordinateRequest).getThirdPointPoint();

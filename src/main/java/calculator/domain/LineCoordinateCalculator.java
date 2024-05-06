@@ -7,13 +7,21 @@ import calculator.coordinate.Point;
 public class LineCoordinateCalculator implements CoordinateCalculator {
 	private static final int SQUARE_FACTOR = 2;
 
-	public LineCoordinateCalculator() {}
+	private final CoordinateRequest coordinateRequest;
+
+	private LineCoordinateCalculator(final LineCoordinateRequest coordinateRequest) {
+		this.coordinateRequest = coordinateRequest;
+	}
+
+	public static LineCoordinateCalculator from(final LineCoordinateRequest coordinateRequest) {
+		return new LineCoordinateCalculator(coordinateRequest);
+	}
 
 	/**
 	 * 직선 좌표 : 두 좌표 간 거리 계산
 	 */
 	@Override
-	public double calculate(final CoordinateRequest coordinateRequest) {
+	public double calculate() {
 		final Point firstPoint = ((LineCoordinateRequest) coordinateRequest).getFirstPoint();
 		final Point secondPoint = ((LineCoordinateRequest) coordinateRequest).getSecondPoint();
 
