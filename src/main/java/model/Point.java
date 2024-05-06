@@ -26,4 +26,12 @@ public class Point {
         return value >= MIN_VALUE && value <= MAX_VALUE;
     }
 
+    public int calculateDistanceByX(Point other) {
+        return Math.abs(this.x - other.x);
+    }
+
+    public int calculateDistanceByY(Point other) {
+        return Math.abs(this.y - other.y);
+    }
+
 }
