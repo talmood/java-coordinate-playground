@@ -1,7 +1,6 @@
-package output.dto;
+package output;
 
-import output.OutputPrompt;
-import output.OutputPromptCreator;
+import output.dto.CalculateOutput;
 
 public class ConsoleOutputPrompt implements OutputPrompt {
 

@@ -6,8 +6,8 @@ import domain.PolygonCalculatorCreator;
 import domain.PolygonCreator;
 import input.CoordinateInputPrompt;
 import input.dto.CoordinateInput;
+import output.ConsoleOutputPrompt;
 import output.dto.CalculateOutput;
-import output.dto.ConsoleOutputPrompt;
 
 public class ConsoleCoordinateCalculator implements CoordinateCalculator {
     @Override
