@@ -26,14 +26,14 @@ public class CoordinateInput {
         return List.copyOf(this.coordinates);
     }
 
-    public boolean isCoordinatesSizeBetween(int min, int max) {
-        return this.isCoordinatesSizeGreaterEqualThan(min) && this.isCoordinatesSizeLessEqualThan(max);
+    public boolean isCoordinatesSizeBetween(int inclusiveMin, int inclusiveMax) {
+        return this.isCoordinatesSizeGreaterEqualThan(inclusiveMin) && this.isCoordinatesSizeLessEqualThan(inclusiveMax);
     }
 
-    public boolean isCoordinatesRangeInclusive(int min, int max) {
+    public boolean isCoordinatesRange(int inclusiveMin, int inclusiveMax) {
         return !CollectionUtil.isEmpty(this.coordinates) &&
                 coordinates.stream()
-                        .allMatch(coordinate -> coordinate.isBetweenCoordinates(min, max));
+                        .allMatch(coordinate -> coordinate.isBetweenCoordinates(inclusiveMin, inclusiveMax));
     }
 
     public boolean hasSameCoordinate() {
@@ -63,12 +63,12 @@ public class CoordinateInput {
             return this.isBetweenXCoordinate(min, max) && this.isBetweenYCoordinate(min, max);
         }
 
-        private boolean isBetweenXCoordinate(int min, int max) {
-            return this.xCoordinate >= min && this.xCoordinate <= max;
+        private boolean isBetweenXCoordinate(int inclusiveMin, int inclusiveMax) {
+            return this.xCoordinate >= inclusiveMin && this.xCoordinate <= inclusiveMax;
         }
 
-        private boolean isBetweenYCoordinate(int min, int max) {
-            return this.yCoordinate >= min && this.yCoordinate <= max;
+        private boolean isBetweenYCoordinate(int inclusiveMin, int inclusiveMax) {
+            return this.yCoordinate >= inclusiveMin && this.yCoordinate <= inclusiveMax;
         }
 
 

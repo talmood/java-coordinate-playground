@@ -28,7 +28,7 @@ public class CoordinateInputValidator {
     }
 
     private void validateRange(CoordinateInput coordinateInput) {
-        if (!coordinateInput.isCoordinatesRangeInclusive(MIN_COORDINATE_RANGE_INCLUSIVE, MAX_COORDINATE_RANGE_INCLUSIVE)) {
+        if (!coordinateInput.isCoordinatesRange(MIN_COORDINATE_RANGE_INCLUSIVE, MAX_COORDINATE_RANGE_INCLUSIVE)) {
             throw new IllegalArgumentException(
                     String.format(
                             "> [ERROR] 잘못된 입력입니다. X, Y 좌표의 범위는 최소 %d, 최대 %d입니다.",
