@@ -25,7 +25,8 @@ class LineTest {
         IllegalArgumentException illegalArgumentException =
                 assertThrows(IllegalArgumentException.class, () -> Line.create(coordinates));
 
-        assertEquals(illegalArgumentException.getMessage(),
+        assertEquals(
+                illegalArgumentException.getMessage(),
                 String.format("[ERROR] 선의 좌표는 %d개 여야 합니다.", VALID_COORDINATE_SIZE)
         );
     }

@@ -25,7 +25,8 @@ class TriangleTest {
         IllegalArgumentException illegalArgumentException =
                 assertThrows(IllegalArgumentException.class, () -> Triangle.create(coordinates));
 
-        assertEquals(illegalArgumentException.getMessage(),
+        assertEquals(
+                illegalArgumentException.getMessage(),
                 String.format("[ERROR] 삼각형의 좌표는 %d개 여야 합니다.", VALID_COORDINATE_SIZE)
         );
     }
