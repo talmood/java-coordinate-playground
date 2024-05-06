@@ -1,6 +1,6 @@
 package domain;
 
-public class PolygonCreator {
+public abstract class PolygonCreator {
 
     private static final int LINE_COORDINATES_SIZE = 2;
     private static final int TRIANGLE_COORDINATES_SIZE = 3;
