@@ -22,6 +22,10 @@ public class CoordinateInput {
         );
     }
 
+    public List<Coordinate> getCoordinates() {
+        return List.copyOf(this.coordinates);
+    }
+
     public boolean isCoordinatesSizeBetween(int min, int max) {
         return this.isCoordinatesSizeGreaterEqualThan(min) && this.isCoordinatesSizeLessEqualThan(max);
     }
