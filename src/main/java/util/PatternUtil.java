@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public abstract class PatternUtil {
 
-    public static boolean isMatches(String regex, String str) {
+    public static boolean matches(String regex, String str) {
         if (Objects.isNull(str)) {
             return false;
         }

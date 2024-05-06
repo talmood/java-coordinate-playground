@@ -14,7 +14,7 @@ public class ConsoleInputCoordinatePatternMatcher {
     private static final String PATTERN_COMPILE_REGEX = "\\((\\d+),(\\d+)\\)";
 
     public static ConsoleInput match(String userInput) {
-        validCheck(userInput);
+        validate(userInput);
 
         Pattern pattern = Pattern.compile(PATTERN_COMPILE_REGEX);
         Matcher matcher = pattern.matcher(userInput);
@@ -31,13 +31,13 @@ public class ConsoleInputCoordinatePatternMatcher {
         return new ConsoleInput(coordinates);
     }
 
-    private static void validCheck(String userInput) {
+    private static void validate(String userInput) {
         if (!isValidUserInput(userInput)) {
             throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다.");
         }
     }
 
     private static boolean isValidUserInput(String userInput) {
-        return !StringUtil.isEmpty(userInput) && PatternUtil.isMatches(USER_INPUT_REGEX, userInput);
+        return !StringUtil.isEmpty(userInput) && PatternUtil.matches(USER_INPUT_REGEX, userInput);
     }
 }
