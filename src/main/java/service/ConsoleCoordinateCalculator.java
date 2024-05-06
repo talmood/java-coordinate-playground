@@ -10,6 +10,7 @@ import output.ConsoleOutputPrompt;
 import output.dto.CalculateOutput;
 
 public class ConsoleCoordinateCalculator implements CoordinateCalculator {
+
     @Override
     public void calculate() {
         CoordinateInputPrompt inputPrompt = new CoordinateInputPrompt();
