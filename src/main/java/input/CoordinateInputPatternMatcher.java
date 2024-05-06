@@ -1,6 +1,6 @@
 package input;
 
-import input.dto.ConsoleInput;
+import input.dto.CoordinateInput;
 import util.PatternUtil;
 import util.StringUtil;
 
@@ -13,22 +13,22 @@ public class CoordinateInputPatternMatcher {
     private static final String USER_INPUT_REGEX = "\\(\\d+,\\d+\\)(-\\(\\d+,\\d+\\))*";
     private static final String PATTERN_COMPILE_REGEX = "\\((\\d+),(\\d+)\\)";
 
-    public static ConsoleInput match(String userInput) {
+    public static CoordinateInput match(String userInput) {
         validate(userInput);
 
         Pattern pattern = Pattern.compile(PATTERN_COMPILE_REGEX);
         Matcher matcher = pattern.matcher(userInput);
 
-        ArrayList<ConsoleInput.Coordinate> coordinates = new ArrayList<>();
+        ArrayList<CoordinateInput.Coordinate> coordinates = new ArrayList<>();
 
         while (matcher.find()) {
             String xIndex = matcher.group(1);
             String yIndex = matcher.group(2);
 
-            coordinates.add(new ConsoleInput.Coordinate(Integer.parseInt(xIndex), Integer.parseInt(yIndex)));
+            coordinates.add(new CoordinateInput.Coordinate(Integer.parseInt(xIndex), Integer.parseInt(yIndex)));
         }
 
-        return new ConsoleInput(coordinates);
+        return new CoordinateInput(coordinates);
     }
 
     private static void validate(String userInput) {

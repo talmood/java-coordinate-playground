@@ -5,7 +5,7 @@ import domain.PolygonCalculator;
 import domain.PolygonCalculatorCreator;
 import domain.PolygonCreator;
 import input.CoordinateInputPrompt;
-import input.dto.ConsoleInput;
+import input.dto.CoordinateInput;
 import output.dto.CalculateOutput;
 import output.dto.ConsoleOutputPrompt;
 
@@ -13,9 +13,9 @@ public class ConsoleCoordinateCalculator implements CoordinateCalculator {
     @Override
     public void calculate() {
         CoordinateInputPrompt inputPrompt = new CoordinateInputPrompt();
-        ConsoleInput consoleInput = inputPrompt.prompt();
+        CoordinateInput coordinateInput = inputPrompt.prompt();
 
-        Polygon polygon = PolygonCreator.create(consoleInput.toDomainCoordinates());
+        Polygon polygon = PolygonCreator.create(coordinateInput.toDomainCoordinates());
         PolygonCalculator polygonCalculator = PolygonCalculatorCreator.create(polygon);
         CalculateOutput output = polygonCalculator.calculate(polygon);
 
