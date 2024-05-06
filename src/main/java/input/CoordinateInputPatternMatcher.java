@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ConsoleInputCoordinatePatternMatcher {
+public class CoordinateInputPatternMatcher {
 
     private static final String USER_INPUT_REGEX = "\\(\\d+,\\d+\\)(-\\(\\d+,\\d+\\))*";
     private static final String PATTERN_COMPILE_REGEX = "\\((\\d+),(\\d+)\\)";

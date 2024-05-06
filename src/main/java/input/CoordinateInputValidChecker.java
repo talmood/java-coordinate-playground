@@ -2,7 +2,7 @@ package input;
 
 import input.dto.ConsoleInput;
 
-public class ConsoleInputCoordinateValidChecker {
+public class CoordinateInputValidChecker {
 
     private static final int MIN_COORDINATE_RANGE = 0;
     private static final int MAX_COORDINATE_RANGE = 24;
