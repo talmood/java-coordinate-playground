@@ -1,6 +1,7 @@
 package input;
 
 import input.dto.CoordinateInput;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -34,6 +35,7 @@ class CoordinateInputPatternMatcherTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"", "(1,1)-", "-(1,1)", "test"})
+    @DisplayName("패턴에 맞지 않는 입력시 illegalArgumentException 발생")
     void match(String userInput) {
         assertAll(
                 () -> {

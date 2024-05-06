@@ -30,7 +30,7 @@ public class CoordinateInput {
         return this.isCoordinatesSizeGreaterEqualThan(min) && this.isCoordinatesSizeLessEqualThan(max);
     }
 
-    public boolean isCoordinatesRange(int min, int max) {
+    public boolean isCoordinatesRangeInclusive(int min, int max) {
         return !CollectionUtil.isEmpty(this.coordinates) &&
                 coordinates.stream()
                         .allMatch(coordinate -> coordinate.isBetweenCoordinates(min, max));

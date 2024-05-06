@@ -14,8 +14,8 @@ public class CoordinateInputPrompt implements InputPrompt {
         System.out.println();
 
         CoordinateInput coordinateCoordinateInput = CoordinateInputPatternMatcher.match(userInput);
-        CoordinateInputValidChecker coordinateInputValidChecker = new CoordinateInputValidChecker();
-        coordinateInputValidChecker.check(coordinateCoordinateInput);
+        CoordinateInputValidator coordinateInputValidator = new CoordinateInputValidator();
+        coordinateInputValidator.validate(coordinateCoordinateInput);
 
         return coordinateCoordinateInput;
     }
