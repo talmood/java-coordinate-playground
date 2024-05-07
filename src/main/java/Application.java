@@ -1,7 +1,15 @@
 public class Application {
 
 	public static void main(String[] args) {
-		// TODO: 미션 구현
+
+		InputView inputView = new InputView();
+		Processor processor = new Processor();
+
+		inputView.printStartMessage();
+		inputView.printGuideInputMessage();
+
+		processor.calculateAreaByCoordination(inputView.acceptInput());
+
 	}
 
 }
