@@ -8,11 +8,15 @@ public class Application {
 		Processor processor = new Processor();
 
 		inputView.printStartMessage();
-		inputView.printGuideInputMessage();
 
-		List<Point> points = inputView.validateCoordinates();
-		processor.calculateAreaByCoordinates(points);
+		do {
+			inputView.printGuideInputMessage();
+			List<Point> points = inputView.validateCoordinates();
+			processor.calculateAreaByCoordinates(points);
 
+		} while (inputView.decideRetry());
+
+		inputView.closeScanner();
 	}
 
 }
