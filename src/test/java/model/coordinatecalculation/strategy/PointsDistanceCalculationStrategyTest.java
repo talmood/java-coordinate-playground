@@ -1,5 +1,10 @@
-package model;
+package model.coordinatecalculation.strategy;
 
+import model.CoordinateCalculationResult;
+import model.Coordinates;
+import model.Point;
+import model.coordinatecalculation.strategy.CoordinateCalculationStrategy;
+import model.coordinatecalculation.strategy.PointsDistanceCalculationStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

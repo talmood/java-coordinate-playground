@@ -1,4 +1,6 @@
-package model;
+package model.coordinatecalculation.strategy;
+
+import model.CoordinateCalculationResult;
 
 public interface CoordinateCalculationStrategy {
 

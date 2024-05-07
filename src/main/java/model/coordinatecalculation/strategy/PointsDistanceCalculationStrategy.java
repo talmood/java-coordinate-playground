@@ -1,4 +1,8 @@
-package model;
+package model.coordinatecalculation.strategy;
+
+import model.CoordinateCalculationResult;
+import model.Coordinates;
+import model.Point;
 
 import java.util.List;
 
