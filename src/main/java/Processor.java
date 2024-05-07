@@ -2,9 +2,10 @@ import java.util.List;
 
 public class Processor {
 
-    public Integer calculateAreaByCoordinates (List<Point> points) {
-
-        return 0;
+    public void calculateAreaByCoordinates (List<Point> points) {
+        Calculator calculator = new Calculator();
+        String calculatedMessage = calculator.calculateArea(points);
+        System.out.println(calculatedMessage);
     }
 
 }
