@@ -13,7 +13,18 @@ public final class DistinguishedCoordinates {
         if (CollectionUtils.isEmpty(points)) {
             throw new IllegalArgumentException("좌표값 리스트는 비어있을 수 없습니다.");
         }
+
+        validateAllDistinguishable(points);
+
         this.points = points;
+    }
+
+    private void validateAllDistinguishable(List<Point> points) {
+        final long distinguishedPointsSize = points.stream().distinct().count();
+
+        if (distinguishedPointsSize != points.size()) {
+            throw new IllegalArgumentException("겹치는 좌표가 존재합니다.");
+        }
     }
 
     public boolean sizeEquals(final int size) {
