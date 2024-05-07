@@ -15,13 +15,6 @@ public record Rectangle(
         validateRectangle(coordinates);
     }
 
-    private void validateRectangle(DistinguishedCoordinates coordinates) {
-        validateSize(coordinates);
-        if (!isRectangle(coordinates)) {
-            throw new IllegalArgumentException("직사각형이 아닙니다.");
-        }
-    }
-
     private static double[] parseAllDistancesOfFourPointsOrderByDistanceAsc(final DistinguishedCoordinates coordinates) {
         final Point first = coordinates.fetchPointByIndex(0);
         final Point second = coordinates.fetchPointByIndex(1);
@@ -43,6 +36,13 @@ public record Rectangle(
 
     public double calculateArea() {
         return getShortestSideLength() * getLongestSideLength();
+    }
+
+    private void validateRectangle(DistinguishedCoordinates coordinates) {
+        validateSize(coordinates);
+        if (!isRectangle(coordinates)) {
+            throw new IllegalArgumentException("직사각형이 아닙니다.");
+        }
     }
 
     private double getLongestSideLength() {
