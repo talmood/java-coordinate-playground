@@ -2,11 +2,13 @@ package model.coordinatecalculation.polygon;
 
 import model.DistinguishedCoordinates;
 import model.Point;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -44,6 +46,23 @@ public class RectangleTest {
         assertThatThrownBy(() -> new Rectangle(coordinates))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("직사각형이 아닙니다.");
+    }
+
+    @Test
+    void calculateArea() {
+        // given
+        final DistinguishedCoordinates coordinates =
+                new DistinguishedCoordinates(List.of(
+                        new Point(10, 10),
+                        new Point(22, 10),
+                        new Point(10, 18),
+                        new Point(22, 18)
+                ));
+        final Rectangle sut = new Rectangle(coordinates);
+
+        final double actual = sut.calculateArea();
+
+        assertThat(actual).isCloseTo(96.0, offset(0.1));
     }
 
 }
