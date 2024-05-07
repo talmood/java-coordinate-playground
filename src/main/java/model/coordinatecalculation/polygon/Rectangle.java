@@ -55,11 +55,6 @@ public record Rectangle(
 
     // todo 벡터 내적을 이용해서 내각이 수직을 이루는지 확인
     private boolean isRectangle(DistinguishedCoordinates coordinates) {
-        final Point first = coordinates.fetchPointByIndex(0);
-        final Point second = coordinates.fetchPointByIndex(1);
-        final Point third = coordinates.fetchPointByIndex(2);
-        final Point fourth = coordinates.fetchPointByIndex(3);
-
         final double[] distances = parseAllDistancesOfFourPointsOrderByDistanceAsc(coordinates);
 
         Arrays.sort(distances); // 거리 오름차순 정렬
