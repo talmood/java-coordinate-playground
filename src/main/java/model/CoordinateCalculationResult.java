@@ -14,8 +14,19 @@ public class CoordinateCalculationResult {
         return new CoordinateCalculationResult(value, ResultType.DISTANCE);
     }
 
+    public static CoordinateCalculationResult fromTriangleArea(double area) {
+        return new CoordinateCalculationResult(area, ResultType.TRIANGLE_AREA);
+    }
+
     public double getValue() {
         return value;
+    }
+
+    public double getDistance() {
+        if (!this.type.isDistance()) {
+            throw new IllegalArgumentException("결과 타입이 길이가 아닙니다.");
+        }
+        return this.value;
     }
 
     public ResultType getType() {
@@ -26,8 +37,11 @@ public class CoordinateCalculationResult {
 
         DISTANCE,
         AREA,
-        ;
+        TRIANGLE_AREA;
 
+        public boolean isDistance() {
+            return this == DISTANCE;
+        }
     }
 
 }
