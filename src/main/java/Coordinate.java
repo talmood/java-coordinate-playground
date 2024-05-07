@@ -7,7 +7,7 @@ public class Coordinate {
     private static final int MAXIMUM_POINT_VALUE = 24;
     private static final int MINIMUM_COORDINATE_SIZE = 2;
     private static final int MAXIMUM_COORDINATE_SIZE = 4;
-    private List<Point> points;
+    private final List<Point> points;
 
     public List<Point> getPoints() {
         return points;
@@ -38,12 +38,10 @@ public class Coordinate {
         Point bottomRight = points.get(2);
         Point topRight = points.get(3);
 
-
         double side1 = Utils.calculateDistance(bottomLeft, topLeft);
         double side2 = Utils.calculateDistance(bottomLeft, bottomRight);
         double side3 = Utils.calculateDistance(topRight, topLeft);
         double side4 = Utils.calculateDistance(topRight, bottomRight);
-
 
         double diagonal1 = Utils.calculateDistance(bottomLeft, topRight);
         double diagonal2 = Utils.calculateDistance(topLeft, bottomRight);
