@@ -1,23 +1,23 @@
 package model.coordinatecalculation.strategy;
 
 import model.CoordinateCalculationResult;
-import model.Coordinates;
+import model.DistinguishedCoordinates;
 import model.Point;
 
 import java.util.List;
 
 public class TriangleAreaCalculationStrategy implements CoordinateCalculationStrategy {
 
-    private final Coordinates coordinates;
+    private final DistinguishedCoordinates coordinates;
 
-    public TriangleAreaCalculationStrategy(Coordinates coordinates) {
-        if (!coordinates.sizeEquals(3)) {
-            throw new IllegalArgumentException("삼각형 넓이 계산을 위한 좌표 계수는 3개이어야 합니다.");
+    public TriangleAreaCalculationStrategy(DistinguishedCoordinates coordinates) {
+        if (!coordinates.sizeEquals(4)) {
+            throw new IllegalArgumentException("사각형 넓이 계산을 위한 좌표 계수는 4개이어야 합니다.");
         }
         this.coordinates = coordinates;
     }
 
-    public Coordinates getCoordinates() {
+    public DistinguishedCoordinates getCoordinates() {
         return this.coordinates;
     }
 
@@ -48,7 +48,7 @@ public class TriangleAreaCalculationStrategy implements CoordinateCalculationStr
 
     private double calculateSideLength(Point first, Point second) {
         final CoordinateCalculationResult calculationResult =
-                new PointsDistanceCalculationStrategy(new Coordinates(List.of(first, second))).calculate();
+                new PointsDistanceCalculationStrategy(new DistinguishedCoordinates(List.of(first, second))).calculate();
 
         return calculationResult.getDistance();
     }

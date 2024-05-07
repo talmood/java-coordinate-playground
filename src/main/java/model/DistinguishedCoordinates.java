@@ -5,11 +5,11 @@ import utils.CollectionUtils;
 import java.util.List;
 import java.util.Objects;
 
-public final class Coordinates {
+public final class DistinguishedCoordinates {
 
     private final List<Point> points;
 
-    public Coordinates(final List<Point> points) {
+    public DistinguishedCoordinates(final List<Point> points) {
         if (CollectionUtils.isEmpty(points)) {
             throw new IllegalArgumentException("좌표값 리스트는 비어있을 수 없습니다.");
         }
@@ -39,11 +39,11 @@ public final class Coordinates {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (Coordinates) obj;
-        return Objects.equals(this.points, that.points);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DistinguishedCoordinates that = (DistinguishedCoordinates) o;
+        return Objects.equals(points, that.points);
     }
 
     @Override

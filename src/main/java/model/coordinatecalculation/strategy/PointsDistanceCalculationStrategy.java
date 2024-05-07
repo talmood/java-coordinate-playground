@@ -1,7 +1,7 @@
 package model.coordinatecalculation.strategy;
 
 import model.CoordinateCalculationResult;
-import model.Coordinates;
+import model.DistinguishedCoordinates;
 import model.Point;
 
 import java.util.List;
@@ -10,9 +10,9 @@ import static utils.MathUtils.square;
 
 public class PointsDistanceCalculationStrategy implements CoordinateCalculationStrategy {
 
-    private final Coordinates coordinates;
+    private final DistinguishedCoordinates coordinates;
 
-    public PointsDistanceCalculationStrategy(Coordinates coordinates) {
+    public PointsDistanceCalculationStrategy(DistinguishedCoordinates coordinates) {
         validateCoordinateSize(coordinates);
         this.coordinates = coordinates;
     }

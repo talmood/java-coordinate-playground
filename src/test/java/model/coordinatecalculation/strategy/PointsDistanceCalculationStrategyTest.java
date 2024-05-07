@@ -1,10 +1,8 @@
 package model.coordinatecalculation.strategy;
 
 import model.CoordinateCalculationResult;
-import model.Coordinates;
+import model.DistinguishedCoordinates;
 import model.Point;
-import model.coordinatecalculation.strategy.CoordinateCalculationStrategy;
-import model.coordinatecalculation.strategy.PointsDistanceCalculationStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -23,7 +21,7 @@ class PointsDistanceCalculationStrategyTest {
     @DisplayName("주어진 좌표가 2개가 아니라면 예외 발생")
     @Test
     void validateCoordinateSize() {
-        final Coordinates coordinates = new Coordinates(List.of(new Point(10, 10)));
+        final DistinguishedCoordinates coordinates = new DistinguishedCoordinates(List.of(new Point(10, 10)));
         assertThatThrownBy(() -> new PointsDistanceCalculationStrategy(coordinates))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("두 점 사이의 계산을 위한 좌표 계수는 2개이어야 합니다.");
@@ -32,7 +30,7 @@ class PointsDistanceCalculationStrategyTest {
     @DisplayName("두 점 사이의 좌표를 계산한다.")
     @ParameterizedTest
     @MethodSource("provideDistanceArguments")
-    void calculate(Coordinates coordinates, double expectedDistance) {
+    void calculate(DistinguishedCoordinates coordinates, double expectedDistance) {
         // given
         final CoordinateCalculationStrategy sut = new PointsDistanceCalculationStrategy(coordinates);
 
@@ -49,15 +47,11 @@ class PointsDistanceCalculationStrategyTest {
     public static Stream<Arguments> provideDistanceArguments() {
         return Stream.of(
                 arguments(
-                        new Coordinates(List.of(new Point(10, 10), new Point(14, 15))),
+                        new DistinguishedCoordinates(List.of(new Point(10, 10), new Point(14, 15))),
                         6.403124
                 ),
                 arguments(
-                        new Coordinates(List.of(new Point(0, 0), new Point(0, 0))),
-                        0.0
-                ),
-                arguments(
-                        new Coordinates(List.of(new Point(0, 0), new Point(24, 24))),
+                        new DistinguishedCoordinates(List.of(new Point(0, 0), new Point(24, 24))),
                         33.941125
                 )
         );

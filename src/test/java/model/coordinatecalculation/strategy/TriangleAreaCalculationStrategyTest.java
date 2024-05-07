@@ -1,10 +1,8 @@
 package model.coordinatecalculation.strategy;
 
 import model.CoordinateCalculationResult;
-import model.Coordinates;
+import model.DistinguishedCoordinates;
 import model.Point;
-import model.coordinatecalculation.strategy.CoordinateCalculationStrategy;
-import model.coordinatecalculation.strategy.TriangleAreaCalculationStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -26,14 +24,14 @@ public class TriangleAreaCalculationStrategyTest {
     @Test
     void coordinates_size_valid() {
         // given
-        final Coordinates coordinates = new Coordinates(List.of(new Point(5, 5), new Point(10, 10), new Point(20, 20)));
+        final DistinguishedCoordinates coordinates = new DistinguishedCoordinates(List.of(new Point(5, 5), new Point(10, 10), new Point(20, 20)));
 
         // when
         final TriangleAreaCalculationStrategy actual = new TriangleAreaCalculationStrategy(coordinates);
 
         // then
         assertThat(actual.getCoordinates())
-                .isEqualTo(new Coordinates(List.of(new Point(5, 5), new Point(10, 10), new Point(20, 20))));
+                .isEqualTo(new DistinguishedCoordinates(List.of(new Point(5, 5), new Point(10, 10), new Point(20, 20))));
     }
 
     @DisplayName("좌표 3개가 주어지지 않으면 예외 발생.")
@@ -41,7 +39,7 @@ public class TriangleAreaCalculationStrategyTest {
     @MethodSource("provideIllegalPoints")
     void coordinates_size_validation(List<Point> points) {
         // given
-        final Coordinates coordinates = new Coordinates(points);
+        final DistinguishedCoordinates coordinates = new DistinguishedCoordinates(points);
 
         // when & then
         assertThatThrownBy(() -> new TriangleAreaCalculationStrategy(coordinates))
@@ -54,7 +52,7 @@ public class TriangleAreaCalculationStrategyTest {
     @MethodSource("provideTriangleAreaArguments")
     void calculate(List<Point> points, double expectedTriangleArea) {
         // given
-        final CoordinateCalculationStrategy sut = new TriangleAreaCalculationStrategy(new Coordinates(points));
+        final CoordinateCalculationStrategy sut = new TriangleAreaCalculationStrategy(new DistinguishedCoordinates(points));
 
         // when
         final CoordinateCalculationResult actual = sut.calculate();
