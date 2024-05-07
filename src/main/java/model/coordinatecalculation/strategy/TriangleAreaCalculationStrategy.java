@@ -11,7 +11,7 @@ public class TriangleAreaCalculationStrategy implements CoordinateCalculationStr
     private final DistinguishedCoordinates coordinates;
 
     public TriangleAreaCalculationStrategy(DistinguishedCoordinates coordinates) {
-        if (!coordinates.sizeEquals(4)) {
+        if (!coordinates.matchesSize(4)) {
             throw new IllegalArgumentException("사각형 넓이 계산을 위한 좌표 계수는 4개이어야 합니다.");
         }
         this.coordinates = coordinates;

@@ -27,10 +27,7 @@ public final class DistinguishedCoordinates {
         }
     }
 
-    public boolean sizeEquals(final int size) {
-        if (Objects.isNull(this.points)) {
-            return false;
-        }
+    public boolean matchesSize(final int size) {
         return this.points.size() == size;
     }
 

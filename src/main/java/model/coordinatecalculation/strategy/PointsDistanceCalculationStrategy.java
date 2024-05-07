@@ -17,8 +17,8 @@ public class PointsDistanceCalculationStrategy implements CoordinateCalculationS
         this.coordinates = coordinates;
     }
 
-    private void validateCoordinateSize(Coordinates coordinates) {
-        if (!coordinates.sizeEquals(2)) {
+    private void validateCoordinateSize(DistinguishedCoordinates coordinates) {
+        if (!coordinates.matchesSize(2)) {
             throw new IllegalArgumentException("두 점 사이의 계산을 위한 좌표 계수는 2개이어야 합니다.");
         }
     }
