@@ -18,6 +18,10 @@ public class CoordinateCalculationResult {
         return new CoordinateCalculationResult(area, ResultType.TRIANGLE_AREA);
     }
 
+    public static CoordinateCalculationResult fromQuadrangleArea(double area) {
+        return new CoordinateCalculationResult(area, ResultType.QUADRANGLE_AREA);
+    }
+
     public double getValue() {
         return value;
     }
@@ -37,7 +41,8 @@ public class CoordinateCalculationResult {
 
         DISTANCE,
         AREA,
-        TRIANGLE_AREA;
+        TRIANGLE_AREA,
+        QUADRANGLE_AREA;
 
         public boolean isDistance() {
             return this == DISTANCE;

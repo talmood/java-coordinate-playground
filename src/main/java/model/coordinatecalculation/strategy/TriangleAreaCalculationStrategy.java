@@ -1,7 +1,7 @@
 package model.coordinatecalculation.strategy;
 
 import model.CoordinateCalculationResult;
-import model.coordinatecalculation.polygon.Triangle;
+import model.polygon.Triangle;
 
 public class TriangleAreaCalculationStrategy implements CoordinateCalculationStrategy {
 

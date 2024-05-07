@@ -1,4 +1,4 @@
-package model.coordinatecalculation.polygon;
+package model.polygon;
 
 import model.CoordinateCalculationResult;
 import model.DistinguishedCoordinates;

@@ -3,7 +3,7 @@ package model.coordinatecalculation.strategy;
 import model.CoordinateCalculationResult;
 import model.DistinguishedCoordinates;
 import model.Point;
-import model.coordinatecalculation.polygon.Triangle;
+import model.polygon.Triangle;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

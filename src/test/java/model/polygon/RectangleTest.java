@@ -1,8 +1,8 @@
-package model.coordinatecalculation.polygon;
+package model.polygon;
 
 import model.DistinguishedCoordinates;
 import model.Point;
-import org.assertj.core.api.Assertions;
+import model.polygon.Rectangle;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
