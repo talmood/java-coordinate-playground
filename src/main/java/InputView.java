@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
@@ -17,6 +18,19 @@ public class InputView {
 
     public String acceptInput() {
         return scanner.nextLine();
+    }
+
+    public List<Point> validateCoordinates() {
+        while (true) {
+            try {
+                String userInput = acceptInput();
+                Coordinate coordinate = new Coordinate(userInput);
+                return coordinate.getPoints();
+            } catch (Exception e) {
+                System.out.println("[ERROR] 잘못된 입력입니다. " + e.getMessage() + "\n");
+                printGuideInputMessage();
+            }
+        }
     }
 
     public void closeScanner() {

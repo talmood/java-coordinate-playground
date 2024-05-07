@@ -1,6 +1,9 @@
+import java.util.List;
+
 public class Processor {
 
-    public Integer calculateAreaByCoordination(String userInput) {
+    public Integer calculateAreaByCoordinates (List<Point> points) {
+
         return 0;
     }
 

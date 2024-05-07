@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Application {
 
 	public static void main(String[] args) {
@@ -8,7 +10,8 @@ public class Application {
 		inputView.printStartMessage();
 		inputView.printGuideInputMessage();
 
-		processor.calculateAreaByCoordination(inputView.acceptInput());
+		List<Point> points = inputView.validateCoordinates();
+		processor.calculateAreaByCoordinates(points);
 
 	}
 
