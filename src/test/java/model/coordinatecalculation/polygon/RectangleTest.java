@@ -1,8 +1,7 @@
-package model.coordinatecalculation;
+package model.coordinatecalculation.polygon;
 
 import model.DistinguishedCoordinates;
 import model.Point;
-import model.Rectangle;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

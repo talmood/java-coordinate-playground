@@ -1,4 +1,7 @@
-package model;
+package model.coordinatecalculation.polygon;
+
+import model.DistinguishedCoordinates;
+import model.Point;
 
 import java.util.Arrays;
 
