@@ -41,7 +41,6 @@ class DistinguishedCoordinatesTest {
         )))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("겹치는 좌표가 존재합니다.");
-
     }
 
 }
