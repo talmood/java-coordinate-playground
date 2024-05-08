@@ -6,6 +6,8 @@ public class InputView {
     static final String START_MESSAGE = "> 계산을 시작합니다.\n";
     static final String GUIDE_INPUT_MESSAGE = "> 좌표를 입력하세요";
     static final String ASK_ANOTHER_ROUND_MESSAGE = "> 계산을 계속하시겠습니까?";
+    static final String ENDING_MESSAGE = " > 계산을 종료합니다.";
+
 
     Scanner scanner = new Scanner(System.in);
 
@@ -19,6 +21,10 @@ public class InputView {
 
     public void askAnotherRoundMessage() {
         System.out.println(ASK_ANOTHER_ROUND_MESSAGE);
+    }
+
+    public void printEndingMessage() {
+        System.out.println(ENDING_MESSAGE);
     }
 
     public String acceptInput() {
@@ -43,10 +49,18 @@ public class InputView {
             try {
                 askAnotherRoundMessage();
                 String acceptInput = acceptInput();
-                return retry(acceptInput);
+                boolean retry = retry(acceptInput);
+                printEndingMessageIfNoRetry(retry);
+                return retry;
             } catch (Exception e) {
                 System.out.println("[ERROR] 잘못된 입력입니다. " + e.getMessage() + "\n");
             }
+        }
+    }
+
+    private void printEndingMessageIfNoRetry(boolean retry) {
+        if (!retry) {
+            printEndingMessage();
         }
     }
 
