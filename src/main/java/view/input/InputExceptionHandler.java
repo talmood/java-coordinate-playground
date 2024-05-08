@@ -27,7 +27,7 @@ public class InputExceptionHandler {
     }
 
     private String toExceptionMessageFormat(final String message) {
-        final String errorPrefix = "[ERROR] 잘못된 입력입니다.";
+        final String errorPrefix = "[ERROR] 잘못된 입력입니다. ";
 
         if (Objects.isNull(message)) {
             return errorPrefix;

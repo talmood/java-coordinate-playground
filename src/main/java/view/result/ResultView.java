@@ -16,7 +16,7 @@ public class ResultView {
     }
 
     public void showCalculationFinishedMessage() {
-        consoleWriter.writeLineWithPromptPrefix("> 계산을 종료합니다.");
+        consoleWriter.writeLineWithPromptPrefix("계산을 종료합니다.");
     }
 
 }
