@@ -3,7 +3,6 @@ package controller;
 import model.CoordinateCalculationResult;
 import model.DistinguishedCoordinates;
 import model.coordinatecalculation.CoordinateCalculator;
-import view.ConsoleWriter;
 import view.input.InputView;
 import view.result.ResultView;
 
