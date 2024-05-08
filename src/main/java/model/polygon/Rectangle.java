@@ -53,7 +53,6 @@ public record Rectangle(
         return parseAllDistancesOfFourPointsOrderByDistanceAsc(this.coordinates)[0];
     }
 
-    // todo 벡터 내적을 이용해서 내각이 수직을 이루는지 확인
     private boolean isRectangle(DistinguishedCoordinates coordinates) {
         final double[] distances = parseAllDistancesOfFourPointsOrderByDistanceAsc(coordinates);
 
