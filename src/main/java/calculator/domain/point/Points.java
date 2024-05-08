@@ -1,6 +1,6 @@
-package calculator;
+package calculator.domain.point;
 
-import calculator.model.Point;
+import calculator.utils.ErrorMessage;
 
 import java.util.HashSet;
 import java.util.List;
@@ -15,34 +15,34 @@ public class Points {
     private final List<Point> points;
 
     private Points(final List<Point> points) {
-        validate(points);
         this.points = points;
     }
 
     public static Points from(final List<Point> points) {
+        validate(points);
         return new Points(points);
     }
 
-    private void validate(final List<Point> points) {
-        validateSize(points);
+    private static void validate(final List<Point> points) {
+        validateCount(points);
         validateDuplicate(points);
     }
 
-    private void validateSize(final List<Point> points) {
+    private static void validateCount(final List<Point> points) {
         if (Objects.isNull(points)) {
-            throw new IllegalArgumentException(ErrorMessage.NULL_COORDINATES);
+            throw new IllegalArgumentException(ErrorMessage.NULL_POINT);
         }
 
         if (points.size() < MIN_COORDINATE_COUNT || points.size() > MAX_COORDINATE_COUNT) {
-            throw new IllegalArgumentException(ErrorMessage.COORDINATE_COUNT);
+            throw new IllegalArgumentException(ErrorMessage.INVALID_POINT_COUNT);
         }
     }
 
-    private void validateDuplicate(final List<Point> points) {
+    private static void validateDuplicate(final List<Point> points) {
         final Set<Point> set = new HashSet<>();
         for (final Point point : points) {
             if (set.contains(point)) {
-                throw new IllegalArgumentException(ErrorMessage.DUPLICATE_COORDINATES);
+                throw new IllegalArgumentException(ErrorMessage.DUPLICATED_POINT);
             }
             set.add(point);
         }

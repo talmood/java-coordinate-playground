@@ -1,10 +1,10 @@
-package calculator.utils;
+package calculator.domain.point;
 
-import calculator.model.Point;
+import calculator.domain.point.Point;
 
-public class PointUtils {
+public class PointCalculations {
 
-    private PointUtils() {}
+    private PointCalculations() {}
 
     public static double distance(Point p1, Point p2) {
         double deltaX = (double) p2.getX() - p1.getX();

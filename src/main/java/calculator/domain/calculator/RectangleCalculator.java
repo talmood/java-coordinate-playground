@@ -1,15 +1,16 @@
-package calculator.model.shapes;
+package calculator.domain.calculator;
 
-import calculator.model.Point;
-import calculator.utils.PointUtils;
+import calculator.domain.point.Point;
+import calculator.domain.point.PointCalculations;
+import calculator.view.ResultView;
 
 import java.util.*;
 
-public class Rectangle implements Shape {
+public class RectangleCalculator implements CoordinateCalculator {
 
     private final List<Point> points;
 
-    private Rectangle(final List<Point> points) {
+    private RectangleCalculator(final List<Point> points) {
         final List<Point> sortedPoints = sortPoints(points);
         validate(sortedPoints);
         this.points = sortedPoints;
@@ -21,8 +22,8 @@ public class Rectangle implements Shape {
         return sortedPoints;
     }
 
-    public static Rectangle of(final List<Point> points) {
-        return new Rectangle(points);
+    public static RectangleCalculator of(final List<Point> points) {
+        return new RectangleCalculator(points);
     }
 
     private void validate(final List<Point> points) {
@@ -40,8 +41,8 @@ public class Rectangle implements Shape {
     }
 
     private void validateDiagonals(List<Point> points) {
-        double diagonal1 = PointUtils.distance(points.get(0), points.get(2));
-        double diagonal2 = PointUtils.distance(points.get(1), points.get(3));
+        double diagonal1 = PointCalculations.distance(points.get(0), points.get(2));
+        double diagonal2 = PointCalculations.distance(points.get(1), points.get(3));
 
         if (diagonal1 != diagonal2) {
             throw new IllegalArgumentException("The provided points do not form a rectangle.");
@@ -49,10 +50,10 @@ public class Rectangle implements Shape {
     }
 
     private void validateSides(List<Point> points) {
-        double side1 = PointUtils.distance(points.get(0), points.get(1));
-        double side2 = PointUtils.distance(points.get(1), points.get(2));
-        double side3 = PointUtils.distance(points.get(2), points.get(3));
-        double side4 = PointUtils.distance(points.get(3), points.get(0));
+        double side1 = PointCalculations.distance(points.get(0), points.get(1));
+        double side2 = PointCalculations.distance(points.get(1), points.get(2));
+        double side3 = PointCalculations.distance(points.get(2), points.get(3));
+        double side4 = PointCalculations.distance(points.get(3), points.get(0));
 
         if (side1 != side3 || side2 != side4) {
             throw new IllegalArgumentException("The provided points do not form a rectangle.");
@@ -64,11 +65,16 @@ public class Rectangle implements Shape {
         return calculateWidth() * calculateHeight();
     }
 
+    @Override
+    public void printCalculateResult() {
+        ResultView.printRectangleCalculateResult(calculate());
+    }
+
     private double calculateWidth() {
-        return PointUtils.distance(points.get(0), points.get(1));
+        return PointCalculations.distance(points.get(0), points.get(1));
     }
 
     private double calculateHeight() {
-        return PointUtils.distance(points.get(0), points.get(2));
+        return PointCalculations.distance(points.get(0), points.get(2));
     }
 }

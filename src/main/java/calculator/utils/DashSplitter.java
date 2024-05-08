@@ -3,10 +3,10 @@ package calculator.utils;
 import java.util.Arrays;
 import java.util.List;
 
-public class Splitter {
+public class DashSplitter {
     private static final String STRING_DELIMITER = "-";
 
-    private Splitter() {
+    private DashSplitter() {
     }
 
     public static List<String> split(final String value) {

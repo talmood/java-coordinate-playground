@@ -1,4 +1,4 @@
-package calculator.model;
+package calculator.domain.point;
 
 import java.util.Objects;
 
@@ -13,6 +13,7 @@ public class Point {
     }
 
     public static Point of(final int x, final int y) {
+        PointValidator.validate(x, y);
         return new Point(x, y);
     }
 
@@ -22,14 +23,6 @@ public class Point {
 
     public int getY() {
         return y;
-    }
-
-    @Override
-    public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
     }
 
     @Override

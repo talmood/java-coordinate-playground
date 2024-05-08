@@ -1,65 +1,34 @@
 package calculator.view;
 
-import calculator.ErrorMessage;
-import calculator.Points;
-import calculator.Scanner;
-import calculator.model.Point;
-import calculator.utils.Splitter;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import calculator.utils.Scanner;
+import calculator.request.CoordinateRequest;
 
 public class InputView {
 
-    private static final String SINGLE_COORDINATE_PATTERN = "\\(\\d+,\\d+\\)*";
-    private static final String MULTIPLE_COORDINATE_PATTERN = "\\(\\d+,\\d+\\)(?:-\\(\\d+,\\d+\\))*";
+    private static final String CALCULATE_START_MESSAGE = "계산을 시작합니다.";
+    private static final String CALCULATE_END_MESSAGE = "계산을 종료합니다.";
+    private static final String INPUT_COORDINATE_MESSAGE = "좌표를 입력하세요.";
+    private static final String CONTINUE_CALCULATE_MESSAGE = "계산을 계속하시겠습니까? (yes/no)";
+    private static final String CONTINUE_CONDITION = "yes";
 
-    public static Points inputCoordinates() {
-        System.out.println("좌표를 입력하세요.");
-        final String input = Scanner.readLine();
-        final String trimedInput = input.replaceAll("\\s+", "");
-
-        final Points points = generatePoints(trimedInput);
-        return points;
+    private InputView() {
     }
 
-    private static Points generatePoints(final String input) {
-
-        final List<Point> points = new ArrayList<>();
-        
-        if (!input.matches(MULTIPLE_COORDINATE_PATTERN)) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT);
-        }
-        
-        Splitter.split(input).stream()
-                .map(InputView::generatePoint)
-                .forEach(points::add);
-
-        return Points.from(points);
+    public static void printCalculateStartMessage() {
+        System.out.println(CALCULATE_START_MESSAGE);
     }
 
-    private static Point generatePoint(final String pointStr) {
-        if (!pointStr.matches(SINGLE_COORDINATE_PATTERN)) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT);
-        }
-
-        final Matcher matcher = Pattern.compile("(\\d+),(\\d+)").matcher(pointStr);
-
-        if (!matcher.find()) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT);
-        }
-
-        final int x = Integer.parseInt(matcher.group(1));
-        final int y = Integer.parseInt(matcher.group(2));
-
-        return Point.of(x, y);
+    public static CoordinateRequest inputCoordinates() {
+        System.out.println(INPUT_COORDINATE_MESSAGE);
+        return CoordinateRequest.from(Scanner.readLine());
     }
 
-    public static boolean continueCalculation() {
-        System.out.println("계산을 계속하시겠습니까? (yes/no)");
-        String answer = Scanner.readLine();
-        return answer.equalsIgnoreCase("yes");
+    public static boolean isContinueCalculation() {
+        System.out.println(CONTINUE_CALCULATE_MESSAGE);
+        return Scanner.readLine().equalsIgnoreCase(CONTINUE_CONDITION);
+    }
+
+    public static void printCalculateEndMessage() {
+        System.out.println(CALCULATE_END_MESSAGE);
     }
 }

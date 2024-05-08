@@ -1,22 +1,23 @@
-package calculator.model.shapes;
+package calculator.domain.calculator;
 
-import calculator.model.Point;
-import calculator.utils.PointUtils;
+import calculator.domain.point.Point;
+import calculator.domain.point.PointCalculations;
+import calculator.view.ResultView;
 
 import java.util.List;
 import java.util.Objects;
 
-public class Triangle implements Shape {
+public class TriangleCalculator implements CoordinateCalculator {
 
     private final List<Point> points;
 
-    private Triangle(final List<Point> points) {
+    private TriangleCalculator(final List<Point> points) {
         validate(points);
         this.points = points;
     }
 
-    public static Triangle of(final List<Point> points) {
-        return new Triangle(points);
+    public static TriangleCalculator of(final List<Point> points) {
+        return new TriangleCalculator(points);
     }
 
     private void validate(List<Point> points) {
@@ -32,7 +33,7 @@ public class Triangle implements Shape {
             throw new IllegalArgumentException("The provided points do not form a valid triangle.");
         }
 
-        if (PointUtils.isOnLine(points.get(0), points.get(1), points.get(2))) {
+        if (PointCalculations.isOnLine(points.get(0), points.get(1), points.get(2))) {
             throw new IllegalArgumentException("The provided points do not form a valid triangle.");
         }
     }
@@ -40,11 +41,16 @@ public class Triangle implements Shape {
     @Override
     public double calculate() {
         // 헤론의 공식을 사용하여 삼각형의 넓이를 계산한다.
-        double side1 = PointUtils.distance(points.get(0), points.get(1));
-        double side2 = PointUtils.distance(points.get(1), points.get(2));
-        double side3 = PointUtils.distance(points.get(2), points.get(0));
+        double side1 = PointCalculations.distance(points.get(0), points.get(1));
+        double side2 = PointCalculations.distance(points.get(1), points.get(2));
+        double side3 = PointCalculations.distance(points.get(2), points.get(0));
 
         double s = (side1 + side2 + side3) / 2;
         return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    @Override
+    public void printCalculateResult() {
+        ResultView.printTriangleCalculateResult(calculate());
     }
 }

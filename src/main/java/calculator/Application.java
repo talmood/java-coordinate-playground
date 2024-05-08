@@ -1,12 +1,10 @@
 package calculator;
 
-import calculator.view.InputView;
+import calculator.controller.CoordinateCalculatorManager;
 
 public class Application {
 
 	public static void main(String[] args) {
-		// TODO: 미션 구현
-		InputView.inputCoordinates();
+		CoordinateCalculatorManager.run();
 	}
-
 }

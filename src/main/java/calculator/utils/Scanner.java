@@ -1,4 +1,4 @@
-package calculator;
+package calculator.utils;
 
 public class Scanner {
     private static java.util.Scanner scanner;
