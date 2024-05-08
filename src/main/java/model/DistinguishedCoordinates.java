@@ -42,6 +42,10 @@ public final class DistinguishedCoordinates {
         }
     }
 
+    public int size() {
+        return this.points.size();
+    }
+
     public List<Point> getPoints() {
         return List.copyOf(this.points);
     }
