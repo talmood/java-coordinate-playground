@@ -22,7 +22,6 @@ public class Calculator {
         Point bottomLeft = points.get(0);
         Point topLeft = points.get(1);
         Point bottomRight = points.get(2);
-        Point topRight = points.get(3);
 
         Double sideLeft = Utils.calculateDistance(bottomLeft, topLeft);
         Double sideDown = Utils.calculateDistance(bottomLeft, bottomRight);
