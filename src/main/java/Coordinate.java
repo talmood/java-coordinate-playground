@@ -30,7 +30,6 @@ public class Coordinate {
         if (points.size() != 4) {
             return;
         }
-
         points.sort(Comparator.comparing(Point::getPointX).thenComparing(Point::getPointY));
 
         Point bottomLeft = points.get(0);
@@ -47,7 +46,7 @@ public class Coordinate {
         double diagonal2 = Utils.calculateDistance(topLeft, bottomRight);
 
         //직사각형은 마주보는 두 변의 합이 같고 대각선의 길이가 같다.
-        if (side1 == side3 && side2 == side4 && diagonal1 == diagonal2) {
+        if (side1 == side4 && side2 == side3 && diagonal1 == diagonal2) {
             return;
         }
 
