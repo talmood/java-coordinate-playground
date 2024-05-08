@@ -22,7 +22,7 @@ public class InputExceptionHandler {
         }
     }
 
-    private void writeErrorMessage(IllegalArgumentException e) {
+    public void writeErrorMessage(IllegalArgumentException e) {
         consoleWriter.writeLineWithPromptPrefix(toExceptionMessageFormat(e.getMessage()));
     }
 

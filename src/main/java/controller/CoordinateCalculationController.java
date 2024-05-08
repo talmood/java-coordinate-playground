@@ -3,27 +3,40 @@ package controller;
 import model.CoordinateCalculationResult;
 import model.DistinguishedCoordinates;
 import model.coordinatecalculation.CoordinateCalculator;
-import view.result.ResultView;
+import view.ConsoleWriter;
 import view.input.InputView;
+import view.result.ResultView;
 
 public class CoordinateCalculationController {
 
     private final InputView inputView;
     private final ResultView resultView;
     private final CoordinateCalculator calculator;
+    private final RetryHandler retryHandler;
 
     private CoordinateCalculationController(
             final InputView inputView,
             final ResultView resultView,
-            final CoordinateCalculator calculator
+            final CoordinateCalculator calculator,
+            final RetryHandler retryHandler
     ) {
         this.inputView = inputView;
         this.resultView = resultView;
         this.calculator = calculator;
+        this.retryHandler = retryHandler;
     }
 
-    public static CoordinateCalculationController defaultOf(final InputView inputView, final ResultView resultView) {
-        return new CoordinateCalculationController(inputView, resultView, CoordinateCalculator.switchOnOf());
+    public static CoordinateCalculationController defaultOf(
+            final InputView inputView,
+            final ResultView resultView,
+            RetryHandler retryHandler
+    ) {
+        return new CoordinateCalculationController(
+                inputView,
+                resultView,
+                CoordinateCalculator.switchOnOf(),
+                retryHandler
+        );
     }
 
     public void run() {
@@ -41,8 +54,8 @@ public class CoordinateCalculationController {
     }
 
     private CoordinateCalculationResult calculate() {
-        final DistinguishedCoordinates coordinates = inputView.inputCoordinates();
-        return calculator.calculate(coordinates);
+        DistinguishedCoordinates coordinates = inputView.inputCoordinates();
+        return this.retryHandler.retry(() -> this.calculator.calculate(coordinates), this::calculate);
     }
 
     private void welcomeUser() {

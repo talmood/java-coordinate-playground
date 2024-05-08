@@ -1,4 +1,5 @@
 import controller.CoordinateCalculationController;
+import controller.RetryHandler;
 import view.ConsoleReader;
 import view.ConsoleWriter;
 import view.result.ResultView;
@@ -23,7 +24,7 @@ public class Application {
 		final InputView inputView = new InputViewProxy(exceptionHandler, inputViewImpl);
 		final ResultView resultView = new ResultView(ConsoleWriter.getInstance());
 
-		return CoordinateCalculationController.defaultOf(inputView, resultView);
+        return CoordinateCalculationController.defaultOf(inputView, resultView, new RetryHandler(exceptionHandler));
 	}
 
 }
