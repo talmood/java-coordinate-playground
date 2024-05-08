@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.regex.Matcher;
 
 public class Coordinate {
     private static final int MINIMUM_POINT_VALUE = 0;
@@ -14,7 +15,7 @@ public class Coordinate {
     }
 
     public Coordinate(String userInput) {
-        this.points = validateCommaAndParentheses(userInput);
+        this.points = validateFormat(userInput);
         validateRangeOfPoints(this.points);
         validateNumberOfCoordinates(this.points);
         validateIfRectangleInCase4Points(this.points);
@@ -32,6 +33,12 @@ public class Coordinate {
         }
         points.sort(Comparator.comparing(Point::getPointX).thenComparing(Point::getPointY));
 
+        if (isRectangle(points)) return;
+
+        throw new IllegalArgumentException("직사각형이 아닙니다.");
+    }
+
+    private boolean isRectangle(List<Point> points) {
         Point bottomLeft = points.get(0);
         Point topLeft = points.get(1);
         Point bottomRight = points.get(2);
@@ -47,10 +54,9 @@ public class Coordinate {
 
         //직사각형은 마주보는 두 변의 합이 같고 대각선의 길이가 같다.
         if (side1 == side4 && side2 == side3 && diagonal1 == diagonal2) {
-            return;
+            return true;
         }
-
-        throw new IllegalArgumentException("직사각형이 아닙니다.");
+        return false;
     }
 
     private void validateRangeOfPoints(List<Point> points) {
@@ -66,34 +72,62 @@ public class Coordinate {
         }
     }
 
-    private List<Point> validateCommaAndParentheses(String userInput) {
-
+    private List<Point> validateFormat(String userInput) {
         String noWhiteSpaceUserInput = userInput.replaceAll("\\s", "");
-        String[] coordinatePairs = noWhiteSpaceUserInput.split("-");  // Split the input based on '-'
+        throwIfInputEndsWithDash(noWhiteSpaceUserInput);
+        List<Point> points = createPoints(noWhiteSpaceUserInput);
+        throwIfPointsIsEmpty(points.isEmpty());
+        return points;
+    }
 
-        List<Point> points = new ArrayList<>();
-        String regex = "\\(([^,]+),([^)]+)\\)";  // Regex to extract coordinates inside parentheses
-        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(regex);
-
-        for (String pair : coordinatePairs) {
-            java.util.regex.Matcher matcher = pattern.matcher(pair);
-            if (matcher.matches()) {  // Check if the pair matches the regex pattern
-                try {
-                    double x = Double.parseDouble(matcher.group(1));
-                    double y = Double.parseDouble(matcher.group(2));
-                    points.add(new Point(x, y));
-                } catch (NumberFormatException e) {
-                    throw new IllegalArgumentException("숫자 형식이 잘못되었습니다.");
-                }
-            } else {
-                throw new IllegalArgumentException("좌표 형식이 잘못되었습니다.");
-            }
-        }
-
-        if (points.isEmpty()) {
+    private void throwIfPointsIsEmpty(boolean points) {
+        if (points) {
             throw new IllegalArgumentException("좌표가 존재하지 않습니다.");
         }
+    }
 
+    private void throwIfInputEndsWithDash(String noWhiteSpaceUserInput) {
+        String regexDash = ".*-$";
+        if (noWhiteSpaceUserInput.matches(regexDash)){
+            throw new IllegalArgumentException("잘못된 입력입니다.");
+        }
+    }
+
+    private List<Point> createPoints(String noWhiteSpaceUserInput) {
+        String[] coordinatePairs = noWhiteSpaceUserInput.split("-");
+
+        List<Point> points = new ArrayList<>();
+        String regex = "\\(([^,]+),([^)]+)\\)";
+
+        for (String pair : coordinatePairs) {
+
+            throwIfPairIsEmpty(pair.isEmpty());
+
+            java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(pair);
+
+            createPointIfPairMatchesPattern(points, matcher);
+        }
         return points;
+    }
+
+    private void createPointIfPairMatchesPattern(List<Point> points, Matcher matcher) {
+        if (matcher.matches()) {
+            try {
+                double x = Double.parseDouble(matcher.group(1));
+                double y = Double.parseDouble(matcher.group(2));
+                points.add(new Point(x, y));
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("숫자 형식이 잘못되었습니다.");
+            }
+        } else {
+            throw new IllegalArgumentException("잘못된 형식입니다.");
+        }
+    }
+
+    private void throwIfPairIsEmpty(boolean pair) {
+        if (pair) {
+            throw new IllegalArgumentException("잘못된 입력입니다.");
+        }
     }
 }
