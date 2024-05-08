@@ -40,7 +40,6 @@ public class CoordinateCalculationResult {
     public enum ResultType {
 
         DISTANCE,
-        AREA,
         TRIANGLE_AREA,
         QUADRANGLE_AREA;
 
