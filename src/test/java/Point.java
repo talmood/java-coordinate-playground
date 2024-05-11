@@ -21,4 +21,12 @@ public class Point {
 			throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다. X, Y 좌표의 범위는 최소 0, 최대 24입니다.");
 		}
 	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
 }
