@@ -19,6 +19,7 @@ public class SystemRunner {
                 ShapeManager shapeManager = new ShapeManager();
                 Shape shape = shapeManager.createShape(pointManager.getPoints());
                 shape.calculate();
+                shape.displayResult();
                 retryFlag = userInputScan.retryScan();
             } catch (Exception e){
                 System.out.println(e.getMessage());
