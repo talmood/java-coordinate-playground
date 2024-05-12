@@ -13,7 +13,7 @@ public class ShapeManager {
             return new Triangle(points.get(0), points.get(1), points.get(2));
         }
         if(points.size() ==4){
-            return new Line(points.get(0), points.get(1));
+            return new Square(points.get(0), points.get(1), points.get(2), points.get(3));
         }
         throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다. 좌표는 최소 2개 이상, 4개 이하까지 입력가능합니다.");
     }

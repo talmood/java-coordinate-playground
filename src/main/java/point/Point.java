@@ -1,6 +1,6 @@
 package point;
 
-public class Point {
+public class Point implements Comparable {
     private int x;
     private int y;
 
@@ -21,5 +21,22 @@ public class Point {
         if(this.x == comparePoint.getX() && this.y == comparePoint.getY()){
             throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다. 겹치는 좌표가 존재합니다.");
         }
+    }
+
+    @Override
+    public int compareTo(Object object) {
+        final Point point = (Point) object;
+        if(this.x > point.x){
+            return 1;
+        }
+        if(this.x == point.x && this.y > point.y){
+            return 1;
+        }
+        return -1;
+    }
+
+    public void display(){
+        System.out.println("x = " + x);
+        System.out.println("y = " + y);
     }
 }
