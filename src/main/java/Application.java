@@ -1,7 +1,8 @@
+import service.CoordinateCalculatorManager;
+
 public class Application {
-
-	public static void main(String[] args) {
-		// TODO: 미션 구현
-	}
-
+    public static void main(String[] args) {
+        CoordinateCalculatorManager coordinateCalculatorManager = new CoordinateCalculatorManager();
+        coordinateCalculatorManager.execute();
+    }
 }
